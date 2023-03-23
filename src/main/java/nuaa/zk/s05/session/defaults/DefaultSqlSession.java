@@ -1,10 +1,10 @@
-package nuaa.zk.s04.session.defaults;
+package nuaa.zk.s05.session.defaults;
 
-import nuaa.zk.s04.mapping.BoundSql;
-import nuaa.zk.s04.mapping.Environment;
-import nuaa.zk.s04.mapping.MapperStatement;
-import nuaa.zk.s04.session.Configuration;
-import nuaa.zk.s04.session.SqlSession;
+import nuaa.zk.s05.mapping.BoundSql;
+import nuaa.zk.s05.mapping.Environment;
+import nuaa.zk.s05.mapping.MapperStatement;
+import nuaa.zk.s05.session.Configuration;
+import nuaa.zk.s05.session.SqlSession;
 
 import java.lang.reflect.Method;
 import java.sql.*;

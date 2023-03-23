@@ -1,14 +1,14 @@
-package nuaa.zk.s04.bulider.xml;
+package nuaa.zk.s05.bulider.xml;
 
-import nuaa.zk.s04.bulider.BaseBuilder;
-import nuaa.zk.s04.datasource.DataSourceFactory;
-import nuaa.zk.s04.io.Resources;
-import nuaa.zk.s04.mapping.BoundSql;
-import nuaa.zk.s04.mapping.Environment;
-import nuaa.zk.s04.mapping.MapperStatement;
-import nuaa.zk.s04.mapping.SqlCommandType;
-import nuaa.zk.s04.session.Configuration;
-import nuaa.zk.s04.transaction.TransactionFactory;
+import nuaa.zk.s05.bulider.BaseBuilder;
+import nuaa.zk.s05.datasource.DataSourceFactory;
+import nuaa.zk.s05.io.Resources;
+import nuaa.zk.s05.mapping.BoundSql;
+import nuaa.zk.s05.mapping.Environment;
+import nuaa.zk.s05.mapping.MapperStatement;
+import nuaa.zk.s05.mapping.SqlCommandType;
+import nuaa.zk.s05.session.Configuration;
+import nuaa.zk.s05.transaction.TransactionFactory;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
