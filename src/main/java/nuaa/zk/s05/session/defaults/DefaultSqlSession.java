@@ -38,7 +38,7 @@ public class DefaultSqlSession implements SqlSession {
         try {
             MapperStatement mappedStatement = configuration.getMappedStatement(statement);
             Environment environment = configuration.getEnvironment();
-
+            //真正执行时再去获取连接
             Connection connection = environment.getDataSource().getConnection();
 
             BoundSql boundSql = mappedStatement.getBoundSql();

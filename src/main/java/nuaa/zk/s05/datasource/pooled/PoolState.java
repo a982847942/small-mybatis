@@ -12,20 +12,20 @@ public class PoolState {
     // 活跃链接
     protected final List<PooledConnection> activeConnections = new ArrayList<>();
 
-    // 请求次数
+    // 请求数据库连接的次数
     protected long requestCount = 0;
-    // 总请求时间
+    // 获取连接的总请求时间
     protected long accumulatedRequestTime = 0;
-    //总检查时间
+    //checkoutTime表示从连接池取出连接，到归还连接的时间。accumulatedCheckoutTime表示所有连接的累计checkoutTime
     protected long accumulatedCheckoutTime = 0;
-    //过期连接数量
+    //当连接长时间为归还给连接池时，会被认为连接超时，这个字段记录超时的连接数量
     protected long claimedOverdueConnectionCount = 0;
-    //过期连接总检查时间
+    //累计超时的时间
     protected long accumulatedCheckoutTimeOfOverdueConnections = 0;
 
     // 总等待时间
     protected long accumulatedWaitTime = 0;
-    // 要等待的次数
+    // 需要等待的次数
     protected long hadToWaitCount = 0;
     // 获取连接失败次数
     protected long badConnectionCount = 0;

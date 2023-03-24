@@ -16,13 +16,18 @@ public class PooledConnection implements InvocationHandler {
 
     // 真实的连接
     private Connection realConnection;
-    // 代理的连接
+    // 代理连接
     private Connection proxyConnection;
 
+    //从连接池中取出该连接时的时间戳
     private long checkoutTimestamp;
+    //创建该连接时的时间戳
     private long createdTimestamp;
+    //最后一次被使用时的时间戳
     private long lastUsedTimestamp;
+    //根据数据库的URL 、用户名和密码生成的一个hash值，该哈希值用于标志着该连接所在的连接池
     private int connectionTypeCode;
+    //标记该连接是否有效，防止close掉之后还有外部操作来获取此连接对象
     private boolean valid;
 
     public PooledConnection(Connection connection, PooledDataSource dataSource) {

@@ -14,15 +14,15 @@ public class PooledDataSource implements DataSource {
 
     private org.slf4j.Logger logger = LoggerFactory.getLogger(PooledDataSource.class);
 
-    // 池状态
+    // 管理连接池状态并记录统计信息
     private final PoolState state = new PoolState(this);
 
-    //池中每一个连接都是一个UnpooledDataSource对象,只不过使用结束没有close
+    //池中每一个连接都是一个UnpooledDataSource对象,用于生成真实的数据库连接对象
     private final UnpooledDataSource dataSource;
 
-    // 活跃连接数
+    // 最大活跃连接数
     protected int poolMaximumActiveConnections = 10;
-    // 空闲连接数
+    // 最大空闲连接数
     protected int poolMaximumIdleConnections = 5;
     // 在被强制返回之前,池中连接被检查的时间
     protected int poolMaximumCheckoutTime = 20000;
@@ -34,20 +34,37 @@ public class PooledDataSource implements DataSource {
     protected boolean poolPingEnabled = false;
     // 用来配置 poolPingQuery 多次时间被用一次
     protected int poolPingConnectionsNotUsedFor = 0;
-
+    //根据数据库的URL 、用户名和密码生成的一个hash值，该哈希值用于标志着当前的连接池，在构造函数中 初始化
     private int expectedConnectionTypeCode;
 
     public PooledDataSource() {
         this.dataSource = new UnpooledDataSource();
     }
 
+    /**
+     * 归还连接到连接池
+     * 判断idle列表是否达到上限，如果没有
+     *      1.判断是否属于该连接池
+     *      2.记录检出时间
+     *      3.检查是否是autocommit 如果不是记得回滚
+     *      4.取出代理连接，创建新的connection  设置新连接的相关状态
+     *      5.设置老的connection为invalid
+     *      6. state.notifyAll();通知其它等待线程来抢占该连接
+     * 如果达到上限
+     *      2 . 3同上
+     *      4.直接关闭proxyConnection
+     *      5.同上
+     */
+
     protected void pushConnection(PooledConnection connection) throws SQLException {
         synchronized (state) {
+            //从活跃连接列表中移除该连接
             state.activeConnections.remove(connection);
             // 判断链接是否有效
             if (connection.isValid()) {
                 // 如果空闲链接小于设定数量，也就是太少时
                 if (state.idleConnections.size() < poolMaximumIdleConnections && connection.getConnectionTypeCode() == expectedConnectionTypeCode) {
+                    //累加该连接从池中取出到归还所用的时间 到 池状态管理中
                     state.accumulatedCheckoutTime += connection.getCheckoutTime();
                     // 它首先检查数据库连接是否处于自动提交模式，如果不是，则调用rollback()方法执行回滚操作。
                     // 在MyBatis中，如果没有开启自动提交模式，则需要手动提交或回滚事务。因此，这段代码可能是在确保操作完成后，如果没有开启自动提交模式，则执行回滚操作。
@@ -60,6 +77,7 @@ public class PooledDataSource implements DataSource {
                     state.idleConnections.add(newConnection);
                     newConnection.setCreatedTimestamp(connection.getCreatedTimestamp());
                     newConnection.setLastUsedTimestamp(connection.getLastUsedTimestamp());
+                    //原连接置为无效
                     connection.invalidate();
                     logger.info("Returned connection " + newConnection.getRealHashCode() + " to pool.");
 
