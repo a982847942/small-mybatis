@@ -15,6 +15,8 @@ public class User {
     private Date createTime;
     // 更新时间
     private Date updateTime;
+    //是否合格
+    private boolean isExam;
 
     public Long getId() {
         return id;
@@ -62,5 +64,9 @@ public class User {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public boolean isExam() {
+        return isExam;
     }
 }
