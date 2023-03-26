@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cadd665-cecc-4998-a156-aade67133ac3" name="Changes" comment="MetaClass">
+    <list default="true" id="9cadd665-cecc-4998-a156-aade67133ac3" name="Changes" comment="反射框架">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/MetaClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/MetaClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/BaseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/BaseWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/CollectionWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/CollectionWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/MapWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/MapWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/po/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,38 +51,39 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;H:/javaProject/my-mybatis/small-mybatis/src/test/java/nuaa/zk/test07&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "H:/javaProject/my-mybatis/small-mybatis/src/test/java/nuaa/zk/test07",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\java\nuaa\zk\test07" />
       <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\resources\mapper" />
       <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\resources" />
+      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\main\java\nuaa\zk\s07" />
       <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\java\nuaa\zk\test06" />
-      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\main\java\nuaa\zk\s06" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="nuaa.zk.s07.reflection.wrapper" />
       <recent name="nuaa.zk.s07.reflection.property" />
       <recent name="nuaa.zk.test03.po" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProcessingTest.test3">
+  <component name="RunManager" selected="JUnit.ApiTest.test_SqlSessionFactory">
     <configuration name="ApiTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="small-mybatis" />
       <extension name="coverage">
@@ -96,16 +100,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ApiTest.test_SqlSessionFactory (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ApiTest.test_SqlSessionFactory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="small-mybatis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nuaa.zk.test05.*" />
+          <option name="PATTERN" value="nuaa.zk.test07.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nuaa.zk.test05" />
-      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test05.ApiTest" />
+      <option name="PACKAGE_NAME" value="nuaa.zk.test07" />
+      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test07.ApiTest" />
       <option name="METHOD_NAME" value="test_SqlSessionFactory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -162,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiTest.test_SqlSessionFactory" />
         <item itemvalue="JUnit.ProcessingTest.test3" />
         <item itemvalue="JUnit.ProcessingTest.test2" />
         <item itemvalue="JUnit.ProcessingTest.test" />
         <item itemvalue="JUnit.ApiTest.test" />
-        <item itemvalue="JUnit.ApiTest.test_SqlSessionFactory (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +195,7 @@
       <workItem from="1679643123453" duration="10656000" />
       <workItem from="1679733553195" duration="1223000" />
       <workItem from="1679745473127" duration="15066000" />
-      <workItem from="1679805277851" duration="12131000" />
+      <workItem from="1679805277851" duration="15596000" />
     </task>
     <task id="LOCAL-00001" summary="第一天">
       <created>1679235084755</created>
@@ -263,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679800885848</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="反射框架">
+      <created>1679825616856</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679825616856</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +288,8 @@
     <MESSAGE value="第六天" />
     <MESSAGE value="反射包构造器" />
     <MESSAGE value="MetaClass" />
-    <option name="LAST_COMMIT_MESSAGE" value="MetaClass" />
+    <MESSAGE value="反射框架" />
+    <option name="LAST_COMMIT_MESSAGE" value="反射框架" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -286,6 +298,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/nuaa/zk/s05/bulider/xml/XMLConfigBuilder.java</url>
           <line>70</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

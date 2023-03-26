@@ -16,8 +16,8 @@ public class User {
     // 更新时间
     private Date updateTime;
     //是否合格
-    private boolean isExam;
-    private String city;
+//    private boolean isExam;
+//    private String city;
 
     public Long getId() {
         return id;
@@ -67,10 +67,10 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    public String getZ(){
-        return "z";
-    }
-    public boolean isExam() {
-        return isExam;
-    }
+//    public String getZ(){
+//        return "z";
+//    }
+//    public boolean isExam() {
+//        return isExam;
+//    }
 }

@@ -35,7 +35,7 @@ public abstract class BaseWrapper implements ObjectWrapper {
      */
     protected Object getCollectionValue(PropertyTokenizer prop, Object collection) {
         if (collection instanceof Map) {
-            //这里不用转换为int
+            // TODO: 2023/3/26 这里应该存在问题？ 如果我对象中Map的key不是字符串类型，不转换会得到null
             return ((Map) collection).get(prop.getIndex());
         } else {
             int i = Integer.parseInt(prop.getIndex());

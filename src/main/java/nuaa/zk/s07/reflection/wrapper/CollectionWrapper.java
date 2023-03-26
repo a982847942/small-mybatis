@@ -16,73 +16,73 @@ public class CollectionWrapper implements ObjectWrapper{
     // 原来的对象
     private Collection<Object> object;
 
-    public CollectionWrapper(MetaObject metaObject,Collection<Object> object) {
+    public CollectionWrapper(MetaObject metaObject, Collection<Object> object) {
         this.object = object;
     }
 
-
+    // get,set都是不允许的,只能添加元素
     @Override
     public Object get(PropertyTokenizer prop) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void set(PropertyTokenizer prop, Object value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String findProperty(String name, boolean useCamelCaseMapping) {
-        return null;
-    }
-
-    @Override
-    public String[] getSetterNames() {
-        return new String[0];
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String[] getGetterNames() {
-        return new String[0];
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String[] getSetterNames() {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Class<?> getSetterType(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Class<?> getGetterType(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasSetter(String name) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasGetter(String name) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public MetaObject instantiatePropertyValue(String name, PropertyTokenizer prop, ObjectFactory objectFactory) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isCollection() {
-        return false;
+        return true;
     }
 
     @Override
     public void add(Object element) {
-
+        object.add(element);
     }
 
     @Override
-    public <E> void addAll(List<E> elements) {
-
+    public <E> void addAll(List<E> element) {
+        object.addAll(element);
     }
 }

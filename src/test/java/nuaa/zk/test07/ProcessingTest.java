@@ -12,7 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author brain
@@ -68,18 +70,24 @@ public class ProcessingTest {
         teacher.students.add(stu);
         teacher.students.add(stu2);
         teacher.students.add(new Teacher.Student());
+        Map<String,String> map = new HashMap<>();
+        map.put("1","哈哈");
+        teacher.map = map;
         Job job = new Job();
         job.name = "保安";
         stu.jobs = new ArrayList<>();
         stu.jobs.add(job);
         MetaObject metaObject = SystemMetaObject.forObject(teacher);
         metaObject.setValue("students[2].id","10003");
-        logger.info("getSetType:{}",metaObject.getSetterType("students[1].id"));
-        logger.info("getGetType:{}",metaObject.getGetterType("students[1].id"));
-        logger.info("hasSetter:{}",metaObject.hasSetter("students[0].jobs[0].name"));
-        logger.info("hasGetter:{}",metaObject.hasGetter("students[0].jobs[0].name"));
-        logger.info("students[0].id is : {}",metaObject.getValue("students[1].id"));
+//        logger.info("getSetType:{}",metaObject.getSetterType("students[1].id"));
+//        logger.info("getGetType:{}",metaObject.getGetterType("students[1].id"));
+//        logger.info("hasSetter:{}",metaObject.hasSetter("students[0].jobs[0].name"));
+//        logger.info("hasGetter:{}",metaObject.hasGetter("students[0].jobs[0].name"));
+//        logger.info("students[0].id is : {}",metaObject.getValue("students[1].id"));
+//        logger.info("map:{}",metaObject.getValue("map[1]"));
+        logger.info("students getvalue:{}",metaObject.getValue("students[0].id"));
     }
+
 
 
     static class Teacher {
@@ -90,6 +98,7 @@ public class ProcessingTest {
 
         private List<Student> students;
 
+        private Map<String,String> map;
         private Student student;
 
         public static class Student {
