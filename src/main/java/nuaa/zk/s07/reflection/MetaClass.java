@@ -55,10 +55,17 @@ public class MetaClass {
         }
         return findProperty(name);
     }
+
+    /**
+     *getSetterType 解析出List中元素的类型的方法是通过ObjectWrapper取出元素 然后一层层创建MetaClass 获取最后查询的属性的类型
+     * getGetterType  通过反射直接获取泛型擦除前的actualTypeArguments 然后获得其MetaClass 再查询属性的类型
+     * 有什么区别？？？ 不是很明白 2023.3.26
+     */
     public Class<?> getSetterType(String name) {
         PropertyTokenizer prop = new PropertyTokenizer(name);
         if (prop.hasNext()) {
-            // TODO: 2023/3/26 这里返回第一个字段的 ReturnType 意义何在？  假如是student.id 这里是无法返回id的类型
+            //  这里返回第一个字段的 ReturnType 意义何在？  假如是student.id 这里是无法返回id的类型
+            //更新。 这里配合MetaObject ObjectWrapper使用 经过前面处理到这一步 只会有一个字段 比如id
             MetaClass metaProp = metaClassForProperty(prop.getName());
             return metaProp.getSetterType(prop.getChildren());
         } else {
@@ -104,10 +111,13 @@ public class MetaClass {
     }
     private Type getGenericGetterType(String propertyName) {
         try {
+            //查看invoker类型(MethodInvoker  GetInvoker)
             Invoker invoker = reflector.getGetInvoker(propertyName);
             if (invoker instanceof MethodInvoker) {
+                //methodInvoker  获取method信息(MethodInvoker中的一个字段)
                 Field _method = MethodInvoker.class.getDeclaredField("method");
                 _method.setAccessible(true);
+                //找到真正的method字段的值  类型是Method
                 Method method = (Method) _method.get(invoker);
                 return method.getGenericReturnType();
             } else if (invoker instanceof GetFieldInvoker) {
