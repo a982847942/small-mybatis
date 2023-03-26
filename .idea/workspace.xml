@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cadd665-cecc-4998-a156-aade67133ac3" name="Changes" comment="反射包构造器">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/MetaClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/MetaClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/Reflector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/Reflector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/po/User.java" afterDir="false" />
@@ -80,7 +81,7 @@
       <recent name="nuaa.zk.test03.po" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProcessingTest.test">
+  <component name="RunManager" selected="JUnit.ProcessingTest.test2">
     <configuration name="ApiTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="small-mybatis" />
       <extension name="coverage">
@@ -107,22 +108,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="nuaa.zk.test05" />
       <option name="MAIN_CLASS_NAME" value="nuaa.zk.test05.ApiTest" />
-      <option name="METHOD_NAME" value="test_SqlSessionFactory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApiTest.test_SqlSessionFactory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="small-mybatis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nuaa.zk.test04.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nuaa.zk.test04" />
-      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test04.ApiTest" />
       <option name="METHOD_NAME" value="test_SqlSessionFactory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -161,13 +146,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProcessingTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="small-mybatis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nuaa.zk.test07.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="nuaa.zk.test07" />
+      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test07.ProcessingTest" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProcessingTest.test2" />
         <item itemvalue="JUnit.ProcessingTest.test" />
         <item itemvalue="JUnit.ApiTest.test" />
         <item itemvalue="JUnit.ApiTest.test_SqlSessionFactory (1)" />
         <item itemvalue="JUnit.ApiTest.test_selectOne" />
-        <item itemvalue="JUnit.ApiTest.test_SqlSessionFactory" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +192,7 @@
       <workItem from="1679556783624" duration="12810000" />
       <workItem from="1679643123453" duration="10656000" />
       <workItem from="1679733553195" duration="1223000" />
-      <workItem from="1679745473127" duration="6642000" />
+      <workItem from="1679745473127" duration="14084000" />
     </task>
     <task id="LOCAL-00001" summary="第一天">
       <created>1679235084755</created>
@@ -249,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679752269956</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="反射包构造器">
+      <created>1679757013610</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679757013610</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,5 +282,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/small_mybatis$ProcessingTest_test2.ic" NAME="ProcessingTest.test2 Coverage Results" MODIFIED="1679800309633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>nuaa.zk.test07.*</FILTER>
+    </SUITE>
   </component>
 </project>

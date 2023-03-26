@@ -1,14 +1,12 @@
 package nuaa.zk.s07.reflection;
 
+import nuaa.zk.s07.reflection.invoke.GetFieldInvoker;
 import nuaa.zk.s07.reflection.invoke.Invoker;
 import nuaa.zk.s07.reflection.invoke.MethodInvoker;
 import nuaa.zk.s07.reflection.invoke.SetFieldInvoker;
 import nuaa.zk.s07.reflection.property.PropertyNamer;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.lang.reflect.ReflectPermission;
+import java.lang.reflect.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -51,7 +49,7 @@ public class Reflector {
         //获取set方法列表 同上
         addSetMethods(clazz);
         //获取field字段
-//        addFields(clazz);
+        addFields(clazz);
         readablePropertyNames = getMethods.keySet().toArray(new String[getMethods.keySet().size()]);
         writeablePropertyNames = setMethods.keySet().toArray(new String[setMethods.keySet().size()]);
         for (String readablePropertyName : readablePropertyNames) {
@@ -63,15 +61,61 @@ public class Reflector {
         }
     }
 
+    private void addFields(Class<?> clazz) {
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            if (canAccessPrivateMethods()) {
+                try {
+                    field.setAccessible(true);
+                } catch (Exception e) {
+                    // Ignored. This is only a final precaution, nothing we can do.
+                }
+            }
+            if (field.isAccessible()) {
+                if (!setMethods.containsKey(field.getName())) {
+                    // issue #379 - removed the check for final because JDK 1.5 allows
+                    // modification of final fields through reflection (JSR-133). (JGB)
+                    // pr #16 - final static can only be set by the classloader
+                    //final static同时存在的字段其实可以修改，但需要先用反射把final修饰符消除
+                    int modifiers = field.getModifiers();
+                    if (!(Modifier.isFinal(modifiers) && Modifier.isStatic(modifiers))) {
+                        addSetField(field);
+                    }
+                }
+                if (!getMethods.containsKey(field.getName())) {
+                    addGetField(field);
+                }
+            }
+        }
+        if (clazz.getSuperclass() != null) {
+            addFields(clazz.getSuperclass());
+        }
+    }
+
+    private void addGetField(Field field) {
+        if (isValidPropertyName(field.getName())) {
+            getMethods.put(field.getName(), new GetFieldInvoker(field));
+            getTypes.put(field.getName(), field.getType());
+        }
+    }
+
+    private void addSetField(Field field) {
+        if (isValidPropertyName(field.getName())) {
+            setMethods.put(field.getName(), new SetFieldInvoker(field));
+            setTypes.put(field.getName(), field.getType());
+        }
+    }
+
+
     private void addSetMethods(Class<?> clazz) {
-        Map<String,List<Method>> conflictingSetters = new HashMap<>();
+        Map<String, List<Method>> conflictingSetters = new HashMap<>();
         Method[] methods = getClassMethods(clazz);
         for (Method method : methods) {
             String methodName = method.getName();
-            if (methodName.startsWith("set") && methodName.length() > 3){
-                if (method.getParameterCount() == 1){
+            if (methodName.startsWith("set") && methodName.length() > 3) {
+                if (method.getParameterCount() == 1) {
                     methodName = PropertyNamer.methodToProperty(methodName);
-                    addMethodConflict(conflictingSetters,methodName,method);
+                    addMethodConflict(conflictingSetters, methodName, method);
                 }
             }
         }
@@ -98,6 +142,7 @@ public class Reflector {
         //找出真正属于该类的方法(主要对于父子类中的方法重写  参数扩大 返回值缩小)
         resolveGetterConflicts(conflictingGetters);
     }
+
     private void resolveSetterConflicts(Map<String, List<Method>> conflictingSetters) {
         for (String propName : conflictingSetters.keySet()) {
             List<Method> setters = conflictingSetters.get(propName);
@@ -133,9 +178,15 @@ public class Reflector {
     }
 
     private void addSetMethod(String propName, Method method) {
-        if (isValidPropertyName(propName)){
+        if (isValidPropertyName(propName)) {
             setMethods.put(propName, new MethodInvoker(method));
-            setTypes.put(propName,method.getParameterTypes()[0]);
+            setTypes.put(propName, method.getParameterTypes()[0]);
+        }
+    }
+    private void addGetMethod(String name, Method method) {
+        if (isValidPropertyName(name)) {
+            getMethods.put(name, new MethodInvoker(method));
+            getTypes.put(name, method.getReturnType());
         }
     }
 
@@ -178,12 +229,7 @@ public class Reflector {
         }
     }
 
-    private void addGetMethod(String name, Method method) {
-        if (isValidPropertyName(name)) {
-            getMethods.put(name, new MethodInvoker(method));
-            getTypes.put(name, method.getReturnType());
-        }
-    }
+
 
     private void addMethodConflict(Map<String, List<Method>> conflictingGetters, String methodName, Method method) {
         List<Method> list = conflictingGetters.computeIfAbsent(methodName, k -> new ArrayList<>());
@@ -293,22 +339,82 @@ public class Reflector {
         return !(name.startsWith("$") || "serialVersionUID".equals(name) || "class".equals(name));
     }
 
-    public boolean hasGetter(String name){
+    public boolean hasGetter(String name) {
         return this.getMethods.containsKey(name);
     }
+
     public String[] getGetablePropertyNames() {
         return readablePropertyNames;
     }
 
-    public boolean hasSetter(String name){
+    public boolean hasSetter(String name) {
         return setMethods.containsKey(name);
     }
 
-    public String[] getSetablePropertyNames(){
+    public String[] getSetablePropertyNames() {
         return writeablePropertyNames;
     }
 
     public Map<String, String> getCaseInsensitivePropertyMap() {
         return caseInsensitivePropertyMap;
+    }
+
+    public Invoker getGetInvoker(String name) {
+        Invoker invoker = getMethods.get(name);
+        if (invoker == null) {
+            throw new RuntimeException("There is no getter for property named '" + name + "' in '" + type + "'");
+        }
+        return invoker;
+    }
+
+    public Invoker getSetInvoker(String name) {
+        Invoker invoker = setMethods.get(name);
+        if (invoker == null) {
+            throw new RuntimeException("There is no setter for property named '" + name + "' in '" + type + "'");
+        }
+        return invoker;
+    }
+
+    public Class<?> getGetterType(String name) {
+        Class<?> clazz = getTypes.get(name);
+        if (clazz == null) {
+            throw new RuntimeException("There is no getter for property named '" + name + "' in '" + type + "'");
+        }
+        return clazz;
+    }
+
+    public Class<?> getSetterType(String name) {
+        Class<?> clazz = setTypes.get(name);
+        if (clazz == null) {
+            throw new RuntimeException("There is no setter for property named '" + name + "' in '" + type + "'");
+        }
+        return clazz;
+    }
+
+    public String findPropertyName(String name) {
+        return caseInsensitivePropertyMap.get(name.toUpperCase(Locale.ENGLISH));
+    }
+
+    public static void setClassCacheEnabled(boolean classCacheEnabled) {
+        Reflector.classCacheEnabled = classCacheEnabled;
+    }
+
+    public static boolean isClassCacheEnabled() {
+        return classCacheEnabled;
+    }
+
+    public static Reflector forClass(Class<?> clazz) {
+        if (classCacheEnabled) {
+            // synchronized (clazz) removed see issue #461
+            // 对于每个类来说，我们假设它是不会变的，这样可以考虑将这个类的信息(构造函数，getter,setter,字段)加入缓存，以提高速度
+            Reflector cached = REFLECTOR_MAP.get(clazz);
+            if (cached == null) {
+                cached = new Reflector(clazz);
+                REFLECTOR_MAP.put(clazz, cached);
+            }
+            return cached;
+        } else {
+            return new Reflector(clazz);
+        }
     }
 }
