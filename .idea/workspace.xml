@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9cadd665-cecc-4998-a156-aade67133ac3" name="Changes" comment="反射框架">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/BaseWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/BaseWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/CollectionWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/CollectionWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/MapWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s07/reflection/wrapper/MapWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nuaa/zk/test07/po/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "H:/javaProject/my-mybatis/small-mybatis/src/test/java/nuaa/zk/test07",
+    "last_opened_file_path": "H:/javaProject/my-mybatis/small-mybatis/src/test/resources/mapper",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,30 +67,46 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\java\nuaa\zk\test07" />
       <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\resources\mapper" />
       <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\resources" />
-      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\main\java\nuaa\zk\s07" />
-      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\java\nuaa\zk\test06" />
+      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\java\nuaa\zk\test08" />
+      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\main\java\nuaa\zk\s08\scripting" />
+      <recent name="H:\javaProject\my-mybatis\small-mybatis\src\main\java\nuaa\zk\s08" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="nuaa.zk.s08.scripting.defaults" />
       <recent name="nuaa.zk.s07.reflection.wrapper" />
       <recent name="nuaa.zk.s07.reflection.property" />
       <recent name="nuaa.zk.test03.po" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ApiTest.test_SqlSessionFactory">
-    <configuration name="ApiTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ApiTest.test_SqlSessionFactory (1)">
+    <configuration name="ApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="small-mybatis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nuaa.zk.test06.*" />
+          <option name="PATTERN" value="nuaa.zk.test08.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nuaa.zk.test06" />
-      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test06.ApiTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="nuaa.zk.test08" />
+      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test08.ApiTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiTest.test_SqlSessionFactory (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="small-mybatis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nuaa.zk.test08.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="nuaa.zk.test08" />
+      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test08.ApiTest" />
+      <option name="METHOD_NAME" value="test_SqlSessionFactory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,49 +128,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProcessingTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReflectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="small-mybatis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nuaa.zk.test07.*" />
+          <option name="PATTERN" value="nuaa.zk.test08.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nuaa.zk.test07" />
-      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test07.ProcessingTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="nuaa.zk.test08" />
+      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test08.ReflectionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProcessingTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReflectionTest.test_reflection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="small-mybatis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nuaa.zk.test07.*" />
+          <option name="PATTERN" value="nuaa.zk.test08.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nuaa.zk.test07" />
-      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test07.ProcessingTest" />
-      <option name="METHOD_NAME" value="test2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProcessingTest.test3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="small-mybatis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nuaa.zk.test07.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nuaa.zk.test07" />
-      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test07.ProcessingTest" />
-      <option name="METHOD_NAME" value="test3" />
+      <option name="PACKAGE_NAME" value="nuaa.zk.test08" />
+      <option name="MAIN_CLASS_NAME" value="nuaa.zk.test08.ReflectionTest" />
+      <option name="METHOD_NAME" value="test_reflection" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiTest.test_SqlSessionFactory (1)" />
+        <item itemvalue="JUnit.ApiTest" />
         <item itemvalue="JUnit.ApiTest.test_SqlSessionFactory" />
-        <item itemvalue="JUnit.ProcessingTest.test3" />
-        <item itemvalue="JUnit.ProcessingTest.test2" />
-        <item itemvalue="JUnit.ProcessingTest.test" />
-        <item itemvalue="JUnit.ApiTest.test" />
+        <item itemvalue="JUnit.ReflectionTest.test_reflection" />
+        <item itemvalue="JUnit.ReflectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +190,10 @@
       <workItem from="1679643123453" duration="10656000" />
       <workItem from="1679733553195" duration="1223000" />
       <workItem from="1679745473127" duration="15066000" />
-      <workItem from="1679805277851" duration="15596000" />
+      <workItem from="1679805277851" duration="16402000" />
+      <workItem from="1679899377819" duration="3956000" />
+      <workItem from="1679919727186" duration="46000" />
+      <workItem from="1680093735028" duration="4327000" />
     </task>
     <task id="LOCAL-00001" summary="第一天">
       <created>1679235084755</created>
@@ -274,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679825616856</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="反射框架">
+      <created>1679834313074</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679834313074</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +308,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java</url>
           <line>87</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/nuaa/zk/s08/executor/statement/PrepareStatementHandler.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
