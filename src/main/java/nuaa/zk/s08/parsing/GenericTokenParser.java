@@ -42,6 +42,7 @@ public class GenericTokenParser {
                     } else {
                         builder.append(src, offset, start - offset);
                         offset = start + openToken.length();
+                        //#{id} 解析出id
                         String content = new String(src, offset, end - offset);
                         // 得到一对大括号里的字符串后，调用handler.handleToken,比如替换变量这种功能
                         builder.append(handler.handleToken(content));

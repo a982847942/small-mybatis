@@ -17,6 +17,12 @@ import java.util.List;
  * @date 2023/3/27 15:10
  */
 public class XMLMapperBuilder extends BaseBuilder {
+    /**
+     *  <mapper resource="mapper/User_Mapper08.xml"/>
+     *  resource = "mapper/User_Mapper08.xml"
+     *  Element 对应mapper文档树的根结点
+     */
+
     private Element element;
     private String resource;
     private String currentNamespace;
@@ -30,6 +36,7 @@ public class XMLMapperBuilder extends BaseBuilder {
     }
 
     public void parse() throws Exception {
+        //configuration中会保存已经加载过的mapper文件(loadResources)
         if (!this.configuration.isResourceLoaded(resource)){
             //解析
             configurationElement(element);
@@ -40,12 +47,18 @@ public class XMLMapperBuilder extends BaseBuilder {
         }
     }
 
-    // 配置mapper元素
-    // <mapper namespace="org.mybatis.example.BlogMapper">
-    //   <select id="selectBlog" parameterType="int" resultType="Blog">
-    //    select * from Blog where id = #{id}
-    //   </select>
-    // </mapper>
+
+    /**
+     配置mapper元素
+      <mapper namespace="org.mybatis.example.BlogMapper">
+        <select id="selectBlog" parameterType="int" resultType="Blog">
+            select * from Blog where id = #{id}
+        </select>
+     </mapper>
+     currentNamespace = org.mybatis.example.BlogMapper 接口的全限定名
+
+     */
+
     private void configurationElement(Element element) {
         // 1.配置namespace
         currentNamespace = element.attributeValue("namespace");
@@ -60,6 +73,7 @@ public class XMLMapperBuilder extends BaseBuilder {
     // 配置select|insert|update|delete
     private void buildStatementFromContext(List<Element> list) {
         for (Element element : list) {
+            //相关语句的解析使用XMLStatementBuilder
             final XMLStatementBuilder statementParser = new XMLStatementBuilder(configuration, element, currentNamespace);
             statementParser.parseStatementNode();
         }

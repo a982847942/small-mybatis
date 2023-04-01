@@ -23,21 +23,33 @@ public class XMLStatementBuilder extends BaseBuilder {
         this.element = element;
         this.currentNamespace = currentNamespace;
     }
-    //解析语句(select|insert|update|delete)
-    //<select
-    //  id="selectPerson"
-    //  parameterType="int"
-    //  parameterMap="deprecated"
-    //  resultType="hashmap"
-    //  resultMap="personResultMap"
-    //  flushCache="false"
-    //  useCache="true"
-    //  timeout="10000"
-    //  fetchSize="256"
-    //  statementType="PREPARED"
-    //  resultSetType="FORWARD_ONLY">
-    //  SELECT * FROM PERSON WHERE ID = #{id}
-    //</select>
+
+    /**
+     *  解析语句(select|insert|update|delete)
+     * <select
+     *     id="selectPerson"
+     *     parameterType="int"
+     *     parameterMap="deprecated"
+     *     resultType="hashmap"
+     *     resultMap="personResultMap"
+     *     flushCache="false"
+     *     useCache="true"
+     *     timeout="10000"
+     *     fetchSize="256"
+     *     statementType="PREPARED"
+     *     resultSetType="FORWARD_ONLY" >
+     *
+     *     SELECT * FROM PERSON WHERE ID = #{id}
+     *
+     * </select>
+     * id: 接口中的方法名称  currentNameSpace + id = 方法唯一标识符
+     * parameterType:参数类型
+     * parameterTypeClass: 获取参数类型对应的Class resolveAlias是BaseBuilder中的typeAlias进行解析(注意自定义类型也要传入全限定名)
+     * resultType  resultTypeClass同理
+     * nodeName: 即select、update、insert、delete
+     * sqlCommandType:对应的枚举类
+     */
+
     public void parseStatementNode() {
         String id = element.attributeValue("id");
         // 参数类型
@@ -56,6 +68,7 @@ public class XMLStatementBuilder extends BaseBuilder {
 
         SqlSource sqlSource = langDriver.createSqlSource(configuration, element, parameterTypeClass);
 
+        //相应的语句封装
         MapperStatement mappedStatement = new MapperStatement.Builder(configuration, currentNamespace + "." + id, sqlCommandType, sqlSource, resultTypeClass).build();
 
         // 添加解析 SQL

@@ -139,7 +139,7 @@ public class XMLConfigBuilder extends BaseBuilder {
             String resource = e.attributeValue("resource");
             InputStream inputStream = Resources.getResourceAsInputStream(resource);
 
-            // 在for循环里每个mapper都重新new一个XMLMapperBuilder，来解析
+            // 在for循环里每个mapper都重新 new一个XMLMapperBuilder，来解析
             XMLMapperBuilder mapperParser = new XMLMapperBuilder(inputStream, configuration, resource);
             mapperParser.parse();
         }

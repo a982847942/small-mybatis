@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cadd665-cecc-4998-a156-aade67133ac3" name="Changes" comment="反射框架">
+    <list default="true" id="9cadd665-cecc-4998-a156-aade67133ac3" name="Changes" comment="XML语句构建器">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/bulider/xml/XMLConfigBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/bulider/xml/XMLConfigBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/bulider/xml/XMLMapperBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/bulider/xml/XMLMapperBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/bulider/xml/XMLStatementBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/bulider/xml/XMLStatementBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/parsing/GenericTokenParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nuaa/zk/s08/parsing/GenericTokenParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,24 +50,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "H:/javaProject/my-mybatis/small-mybatis/src/test/resources/mapper",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;H:/javaProject/my-mybatis/small-mybatis/src/test/resources/mapper&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\javaProject\my-mybatis\small-mybatis\src\test\resources\mapper" />
@@ -193,7 +196,14 @@
       <workItem from="1679805277851" duration="16402000" />
       <workItem from="1679899377819" duration="3956000" />
       <workItem from="1679919727186" duration="46000" />
-      <workItem from="1680093735028" duration="4327000" />
+      <workItem from="1680093735028" duration="4991000" />
+      <workItem from="1680138015475" duration="68000" />
+      <workItem from="1680179244560" duration="2873000" />
+      <workItem from="1680182141091" duration="3267000" />
+      <workItem from="1680224592208" duration="1315000" />
+      <workItem from="1680244131949" duration="2754000" />
+      <workItem from="1680261957862" duration="7526000" />
+      <workItem from="1680314249335" duration="1664000" />
     </task>
     <task id="LOCAL-00001" summary="第一天">
       <created>1679235084755</created>
@@ -279,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679834313074</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="XML语句构建器">
+      <created>1680098226120</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680098226120</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +311,8 @@
     <MESSAGE value="反射包构造器" />
     <MESSAGE value="MetaClass" />
     <MESSAGE value="反射框架" />
-    <option name="LAST_COMMIT_MESSAGE" value="反射框架" />
+    <MESSAGE value="XML语句构建器" />
+    <option name="LAST_COMMIT_MESSAGE" value="XML语句构建器" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -308,11 +326,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/nuaa/zk/test07/ProcessingTest.java</url>
           <line>87</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nuaa/zk/s08/executor/statement/PrepareStatementHandler.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
